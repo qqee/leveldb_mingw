@@ -1,6 +1,6 @@
 
 
-###Use this command line tu build [libleveldb.dll] and [libleveldb.a]
+###Use this command line to build [libleveldb.dll] and [libleveldb.a]
 [build/compile/make] [leveldb/dll/a/lib] by mingw at windows platform.
 
 
