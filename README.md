@@ -1,19 +1,59 @@
 
-##Use this command line tu build [libleveldb.dll]
+
+###Use this command line tu build [libleveldb.dll] and [libleveldb.a]
+[build/compile/make] [leveldb/dll/a/lib] by mingw at windows platform.
+
+
 ```bash
-g++ -shared -I. -I./include -std=gnu++0x -D_GLIBCXX_USE_C99_DYNAMIC -w -static \
--D_WIN32_WINNT=0x0501 -fno-builtin-memcmp -D_REENTRANT -DOS_WINDOWS -DLEVELDB_PLATFORM_WINDOWS \
--DBOOST_THREAD_USE_LIB -O2 -DNDEBUG db/builder.cc db/c.cc db/db_impl.cc db/db_iter.cc \
-db/dbformat.cc db/filename.cc db/log_reader.cc db/log_writer.cc db/memtable.cc db/repair.cc \
-db/table_cache.cc db/version_edit.cc db/version_set.cc db/write_batch.cc table/block.cc \
-table/block_builder.cc table/filter_block.cc table/format.cc table/iterator.cc table/merger.cc \
-table/table.cc table/table_builder.cc table/two_level_iterator.cc util/arena.cc util/bloom.cc \
-util/cache.cc util/coding.cc util/comparator.cc util/crc32c.cc util/env.cc util/env_win.cc \
-util/filter_policy.cc util/hash.cc util/histogram.cc util/logging.cc util/options.cc \
-util/status.cc util/win_logger.cc  port/port_win.cc -o libleveldb.dll
+g++ -shared -I. -I./include -std=gnu++0x -D_GLIBCXX_USE_C99_DYNAMIC -w -static -D_WIN32_WINNT=0x0501 -fno-builtin-memcmp -D_REENTRANT -DOS_WINDOWS -DLEVELDB_PLATFORM_WINDOWS -DBOOST_THREAD_USE_LIB -O2 -DNDEBUG db/builder.cc db/c.cc db/db_impl.cc db/db_iter.cc db/dbformat.cc db/filename.cc db/log_reader.cc db/log_writer.cc db/memtable.cc db/repair.cc db/table_cache.cc db/version_edit.cc db/version_set.cc db/write_batch.cc table/block.cc table/block_builder.cc table/filter_block.cc table/format.cc table/iterator.cc table/merger.cc table/table.cc table/table_builder.cc table/two_level_iterator.cc util/arena.cc util/bloom.cc util/cache.cc util/coding.cc util/comparator.cc util/crc32c.cc util/env.cc util/env_win.cc util/filter_policy.cc util/hash.cc util/histogram.cc util/logging.cc util/options.cc util/status.cc util/win_logger.cc  port/port_win.cc -o libleveldb.dll
+FLAG="g++ -I. -I./include -std=gnu++0x -D_GLIBCXX_USE_C99_DYNAMIC -w -D_WIN32_WINNT=0x0501 -fno-builtin-memcmp -D_REENTRANT-DOS_WINDOWS -DLEVELDB_PLATFORM_WINDOWS -DBOOST_THREAD_USE_LIB -O2 -DNDEBUG -c"
+$FLAG db/builder.cc -o db/builder.o
+$FLAG db/c.cc -o db/c.o
+$FLAG db/db_impl.cc -o db/db_impl.o
+$FLAG db/db_iter.cc -o db/db_iter.o
+$FLAG db/dbformat.cc -o db/dbformat.o
+$FLAG db/filename.cc -o db/filename.o
+$FLAG db/log_reader.cc -o db/log_reader.o
+$FLAG db/log_writer.cc -o db/log_writer.o
+$FLAG db/memtable.cc -o db/memtable.o
+$FLAG db/repair.cc -o db/repair.o
+$FLAG db/table_cache.cc -o db/table_cache.o
+$FLAG db/version_edit.cc -o db/version_edit.o
+$FLAG db/version_set.cc -o db/version_set.o
+$FLAG db/write_batch.cc -o db/write_batch.o
+$FLAG table/block.cc -o table/block.o
+$FLAG table/block_builder.cc -o table/block_builder.o
+$FLAG table/filter_block.cc -o table/filter_block.o
+$FLAG table/format.cc -o table/format.o
+$FLAG table/iterator.cc -o table/iterator.o
+$FLAG table/merger.cc -o table/merger.o
+$FLAG table/table.cc -o table/table.o
+$FLAG table/table_builder.cc -o table/table_builder.o
+$FLAG table/two_level_iterator.cc -o table/two_level_iterator.o
+$FLAG util/arena.cc -o util/arena.o
+$FLAG util/bloom.cc -o util/bloom.o
+$FLAG util/cache.cc -o util/cache.o
+$FLAG util/coding.cc -o util/coding.o
+$FLAG util/comparator.cc -o util/comparator.o
+$FLAG util/crc32c.cc -o util/crc32c.o
+$FLAG util/env.cc -o util/env.o
+$FLAG util/env_win.cc -o util/env_win.o
+$FLAG util/filter_policy.cc -o util/filter_policy.o
+$FLAG util/hash.cc -o util/hash.o
+$FLAG util/histogram.cc -o util/histogram.o
+$FLAG util/logging.cc -o util/logging.o
+$FLAG util/options.cc -o util/options.o
+$FLAG util/status.cc -o util/status.o
+$FLAG util/win_logger.cc -o util/win_logger.o
+$FLAG port/port_win.cc -o port/port_win.o
+rm -f libleveldb.a
+ar -rs libleveldb.a db/builder.o db/c.o db/db_impl.o db/db_iter.o db/dbformat.o db/filename.o db/log_reader.o db/log_writer.o db/memtable.o db/repair.o db/table_cache.o db/version_edit.o db/version_set.o db/write_batch.o table/block.o table/block_builder.o table/filter_block.o table/format.o table/iterator.o table/merger.o table/table.o table/table_builder.o table/two_level_iterator.o util/arena.o util/bloom.o util/cache.o util/coding.o util/comparator.o util/crc32c.o util/env.o util/env_win.o util/filter_policy.o util/hash.o util/histogram.o util/logging.o util/options.o util/status.o util/win_logger.o port/port_win.o
 ```
 
+
+
 ------------------
+
 
 **LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.**
 
